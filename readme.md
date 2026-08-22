@@ -1,8 +1,83 @@
+<div align="center">
+
+![Nicely Neon — Code in full color](./website/public/og.png)
+
 # Nicely Neon
 
-A vivid, carefully balanced dark theme for Visual Studio Code. Nicely Neon uses a focused seven-color system to make syntax easy to scan without turning the editor into visual noise.
+**A vivid, carefully balanced dark theme for Visual Studio Code.**
 
-![Nicely Neon logo](./img/icon.png)
+Seven focused neon colors make syntax easy to scan without turning your editor into visual noise.
+
+[Install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=eight84.nicely-neon-theme) · [Visit eight84.com](https://eight84.com)
+
+</div>
+
+## See it in action
+
+![Nicely Neon shown across TypeScript, Python, and CSS editor panes](./img/nicely-neon-editor-preview.png)
+
+Nicely Neon keeps the editor chrome quiet and gives each syntax family a clear job. The result is colorful at a glance, but calm enough for long sessions.
+
+## The color system
+
+| Color | Hex | Used for |
+| :--- | :--- | :--- |
+| 🩷 Hot pink | `#FE62B5` | Attributes, properties, and storage keywords |
+| 🟣 Violet | `#8974FF` | Decorators and special symbols |
+| 🔵 Electric blue | `#62A8FE` | Keywords and language controls |
+| 🩵 Cool cyan | `#62FECA` | Types, classes, and constants |
+| 🟢 Signal green | `#1AFF90` | Strings and inserted content |
+| 🟡 Warm yellow | `#FEE462` | Functions and callable symbols |
+| 🔴 Alert red | `#FE6262` | Errors, invalid tokens, and destructive states |
+
+Selections use a balanced graphite gray (`#4D4D58`) so highlighted text stays visible without fighting the syntax colors.
+
+## Syntax examples
+
+### TypeScript
+
+```ts
+type GlowMode = 'balanced' | 'electric';
+
+const createGlow = (mode: GlowMode) => ({
+  contrast: 'comfortable',
+  mood: mode,
+  distractions: false,
+});
+
+export const theme = createGlow('electric');
+```
+
+### Python
+
+```python
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Palette:
+    name: str
+    colors: tuple[str, ...]
+
+nicely_neon = Palette(
+    name="Nicely Neon",
+    colors=("#FE62B5", "#62A8FE", "#1AFF90"),
+)
+```
+
+### CSS
+
+```css
+:root {
+  --neon-pink: #fe62b5;
+  --neon-cyan: #62feca;
+  --selection: #4d4d58;
+}
+
+::selection {
+  color: #fff;
+  background: var(--selection);
+}
+```
 
 ## Install
 
@@ -11,31 +86,35 @@ A vivid, carefully balanced dark theme for Visual Studio Code. Nicely Neon uses 
 3. Select **Install**.
 4. Run **Preferences: Color Theme** and choose **Nicely Neon**.
 
-You can also install it directly from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=eight84.nicely-neon-theme).
+Or run:
 
-## Palette
+```text
+ext install eight84.nicely-neon-theme
+```
 
-| Role | Color |
-| --- | --- |
-| Keywords and language controls | `#62A8FE` |
-| Functions and callable symbols | `#FEE462` |
-| Strings | `#1AFF90` |
-| Types and constants | `#62FECA` |
-| Attributes and properties | `#FE62B5` |
-| Decorators and special symbols | `#8974FF` |
-| Errors and destructive states | `#FE6262` |
+[Open Nicely Neon in the Visual Studio Marketplace →](https://marketplace.visualstudio.com/items?itemName=eight84.nicely-neon-theme)
 
-## What changed in 2.0
+## What’s new in 2.0
 
 - Complete modern workbench color coverage
 - Semantic highlighting for stronger TypeScript, JavaScript, Python, and language-server support
-- Clearer comments, selections, indent guides, and active states
+- A clearer graphite selection color, improved comments, indent guides, and active states
 - Matching terminal, Git, diff, notification, menu, and minimap colors
 - Automated theme validation and a release-ready project structure
 
 ## Development
 
-Run `npm run check` to validate the manifest and theme structure. Run `npm run package:vsix` to create an installable VSIX package.
+Validate the manifest and theme structure:
+
+```bash
+npm run check
+```
+
+Create an installable VSIX package:
+
+```bash
+npm run package:vsix
+```
 
 The landing page lives in `website/` and has its own development commands.
 
@@ -45,4 +124,4 @@ Issues and pull requests are welcome. If a token looks wrong, include the langua
 
 ## License
 
-[MIT](./LICENSE.txt)
+[MIT](./LICENSE.txt) · Made with color by [eight84](https://eight84.com)
