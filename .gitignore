@@ -1,0 +1,8 @@
+*.vsix
+.DS_Store
+website/.next/
+website/dist/
+website/node_modules/
+website/.wrangler/
+website/.dev.vars*
+website/.env*

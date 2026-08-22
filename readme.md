@@ -1,51 +1,48 @@
-# Nicely Neon Theme
+# Nicely Neon
 
-A vibrant dark theme for Visual Studio Code with beautiful neon colors that make coding a delight.
+A vivid, carefully balanced dark theme for Visual Studio Code. Nicely Neon uses a focused seven-color system to make syntax easy to scan without turning the editor into visual noise.
 
-## Preview
+![Nicely Neon logo](./img/icon.png)
 
-![Theme Preview](./img/icon.png)
+## Install
 
-## Colors
+1. Open the **Extensions** view in VS Code.
+2. Search for **Nicely Neon Theme**.
+3. Select **Install**.
+4. Run **Preferences: Color Theme** and choose **Nicely Neon**.
 
-This theme features carefully crafted neon colors:
+You can also install it directly from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=eight84.nicely-neon-theme).
 
-- **Red** - Keywords and important elements
-- **Orange** - Operators and warnings
-- **Yellow** - Functions and highlights
-- **Green** - Strings and success elements
-- **Cyan** - Classes and types
-- **Blue** - Methods and special functions
-- **Purple** - Attributes and secondary elements
-- **Pink** - Special cases and accents
+## Palette
 
-## Installation
+| Role | Color |
+| --- | --- |
+| Keywords and language controls | `#62A8FE` |
+| Functions and callable symbols | `#FEE462` |
+| Strings | `#1AFF90` |
+| Types and constants | `#62FECA` |
+| Attributes and properties | `#FE62B5` |
+| Decorators and special symbols | `#8974FF` |
+| Errors and destructive states | `#FE6262` |
 
-1. Open **Extensions** sidebar panel in VS Code. `View → Extensions`
-2. Search for `Nicely Neon Theme`
-3. Click **Install** to install it
-4. Click **Reload** to reload your editor
-5. Code → Preferences → Color Theme → **Nicely Neon**
+## What changed in 2.0
 
-## Manual Installation
+- Complete modern workbench color coverage
+- Semantic highlighting for stronger TypeScript, JavaScript, Python, and language-server support
+- Clearer comments, selections, indent guides, and active states
+- Matching terminal, Git, diff, notification, menu, and minimap colors
+- Automated theme validation and a release-ready project structure
 
-1. Download the extension from the marketplace
-2. Open VS Code and go to Extensions
-3. Click the three dots menu and select "Install from VSIX..."
-4. Select the downloaded .vsix file
+## Development
 
-## What's New
+Run `npm run check` to validate the manifest and theme structure. Run `npm run package:vsix` to create an installable VSIX package.
 
-See [CHANGELOG.md](CHANGELOG.md) for details.
+The landing page lives in `website/` and has its own development commands.
 
 ## Contributing
 
-Found a bug or have a suggestion? Please file an issue on [GitHub](https://github.com/yourusername/nicely-neon-theme/issues).
+Issues and pull requests are welcome. If a token looks wrong, include the language, a small code sample, and the scope name when possible.
 
 ## License
 
-[MIT License](LICENSE)
-
----
-
-**Enjoy coding with neon vibes!** ✨
+[MIT](./LICENSE.txt)

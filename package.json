@@ -1,0 +1,44 @@
+{
+  "name": "nicely-neon-theme",
+  "displayName": "Nicely Neon Theme",
+  "description": "A vivid, carefully balanced dark theme for Visual Studio Code.",
+  "version": "2.0.0",
+  "publisher": "eight84",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "neon",
+    "colorful",
+    "vibrant",
+    "high contrast"
+  ],
+  "scripts": {
+    "check": "node scripts/validate-theme.mjs",
+    "package:vsix": "npx --yes @vscode/vsce package"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Nicely Neon",
+        "uiTheme": "vs-dark",
+        "path": "./themes/nicely-neon-color-theme.json"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eight84/nicely-neon-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eight84/nicely-neon-theme/issues"
+  },
+  "homepage": "https://github.com/eight84/nicely-neon-theme#readme",
+  "license": "MIT",
+  "icon": "img/icon.png"
+}
