@@ -8,7 +8,7 @@
 
 Seven focused neon colors make syntax easy to scan without turning your editor into visual noise.
 
-[Install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=eight84.nicely-neon-theme) · [Visit eight84.com](https://eight84.com)
+[Install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=eight84.nicely-neon-theme) · [Explore the landing page](https://nicely-neon.yellow-spice-2066.chatgpt.site/) · [Visit eight84.com](https://eight84.com)
 
 </div>
 
