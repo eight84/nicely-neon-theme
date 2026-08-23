@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.2
+
+### Improved
+
+- Replaced README previews with full-resolution, unredrawn VS Code captures for crisp syntax rendering.
+- Added CSS and full-workspace examples, including a mascot workspace preview.
+
 ## 2.0.1
 
 ### Improved
