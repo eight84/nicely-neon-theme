@@ -76,6 +76,52 @@ const languages = [
   },
 ] as const;
 
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      name: 'Nicely Neon',
+      url: 'https://nicely-neon-theme.netlify.app/',
+      description: 'A free colorful dark theme for Visual Studio Code.',
+      publisher: { '@type': 'Organization', name: 'eight84', url: 'https://eight84.com' },
+    },
+    {
+      '@type': 'SoftwareApplication',
+      name: 'Nicely Neon Theme',
+      applicationCategory: 'DeveloperApplication',
+      operatingSystem: 'Visual Studio Code',
+      description: 'A free colorful dark VS Code theme with vivid syntax highlighting, balanced contrast, and complete workbench coverage.',
+      image: 'https://nicely-neon-theme.netlify.app/og.png',
+      url: 'https://nicely-neon-theme.netlify.app/',
+      downloadUrl: 'https://marketplace.visualstudio.com/items?itemName=eight84.nicely-neon-theme',
+      codeRepository: 'https://github.com/eight84/nicely-neon-theme',
+      author: { '@type': 'Organization', name: 'eight84', url: 'https://eight84.com' },
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'What is Nicely Neon?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Nicely Neon is a free, colorful dark theme for Visual Studio Code. It uses a focused neon palette for readable syntax, editor chrome, and workbench states.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'How do I install the Nicely Neon VS Code theme?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Install Nicely Neon from the Visual Studio Marketplace, then choose Nicely Neon from Preferences: Color Theme in Visual Studio Code.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'Which languages does Nicely Neon support?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Nicely Neon includes TextMate and semantic token coverage for modern JavaScript, TypeScript, Python, CSS, Markdown, and more.' },
+        },
+      ],
+    },
+  ],
+};
+
 function ArrowIcon() {
   return <span aria-hidden="true">↗</span>;
 }
@@ -105,6 +151,7 @@ export default function Home() {
 
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       <nav className="nav shell" aria-label="Primary navigation">
         <a className="brand" href="#top" aria-label="Nicely Neon home">
           <img src="/nicely-neon-mascot.png" alt="" />
@@ -121,7 +168,7 @@ export default function Home() {
         <div className="heroCopy">
           <p className="eyebrow"><span /> A dark theme for bright ideas</p>
           <h1>Code in<br /><span>full color.</span></h1>
-          <p className="lede">A vivid, carefully balanced VS Code theme that makes syntax unmistakable—and long sessions feel a little more alive.</p>
+          <p className="lede">A vivid, carefully balanced VS Code theme that makes syntax unmistakable—and long sessions feel a little more alive. For anyone looking for a cool colorful dark theme, this is color with a job.</p>
           <div className="heroActions">
             <a className="primaryButton" href="https://marketplace.visualstudio.com/items?itemName=eight84.nicely-neon-theme" target="_blank" rel="noreferrer">Install for VS Code <ArrowIcon /></a>
             <a className="textLink" href="#palette">Explore the palette <span aria-hidden="true">↓</span></a>
@@ -212,10 +259,32 @@ export default function Home() {
         </article>
       </section>
 
+      <section className="faqSection shell" aria-labelledby="faq-heading">
+        <div className="faqIntro">
+          <p className="kicker">03 / QUICK ANSWERS</p>
+          <h2 id="faq-heading">A colorful theme,<br />without the noise.</h2>
+          <p>Nicely Neon is designed for people who want a cool VS Code theme that still stays readable during real work.</p>
+        </div>
+        <div className="faqList">
+          <details open>
+            <summary>What is Nicely Neon?</summary>
+            <p>A free, colorful dark Visual Studio Code theme with vivid syntax highlighting, balanced contrast, and full workbench coverage.</p>
+          </details>
+          <details>
+            <summary>How do I install it?</summary>
+            <p>Install it from the Visual Studio Marketplace, then select <strong>Nicely Neon</strong> from Preferences: Color Theme.</p>
+          </details>
+          <details>
+            <summary>Which languages does it support?</summary>
+            <p>Nicely Neon includes TextMate and semantic token coverage for JavaScript, TypeScript, Python, CSS, Markdown, and more.</p>
+          </details>
+        </div>
+      </section>
+
       <section className="installSection" id="install">
         <div className="installGlow" />
         <div className="installInner shell">
-          <p className="kicker">03 / LIGHTS ON</p>
+          <p className="kicker">04 / LIGHTS ON</p>
           <h2>Your editor called.<br /><span>It wants a glow-up.</span></h2>
           <p>Install Nicely Neon from the VS Code Marketplace, then choose it from Preferences: Color Theme.</p>
           <a className="primaryButton large" href="https://marketplace.visualstudio.com/items?itemName=eight84.nicely-neon-theme" target="_blank" rel="noreferrer">Get Nicely Neon <ArrowIcon /></a>
