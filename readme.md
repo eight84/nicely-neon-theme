@@ -22,7 +22,11 @@ Seven focused neon colors make syntax easy to scan without turning your editor i
 
 ![Python code in VS Code with Nicely Neon](./img/nicely-neon-python-preview.png)
 
-*Captured directly in VS Code with Nicely Neon—matching dimensions, real syntax highlighting, and no recoloring.*
+### CSS
+
+![CSS code in VS Code with Nicely Neon](./img/nicely-neon-css-preview.png)
+
+*Captured in VS Code with Nicely Neon and framed consistently for documentation.*
 
 Nicely Neon keeps the editor chrome quiet and gives each syntax family a clear job. The result is colorful at a glance, but calm enough for long sessions.
 
