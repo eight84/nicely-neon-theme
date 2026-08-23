@@ -6,3 +6,6 @@ website/node_modules/
 website/.wrangler/
 website/.dev.vars*
 website/.env*
+
+# Local Netlify state
+.netlify/

@@ -6,7 +6,7 @@ const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nicely-neon.yellow-spice-2066.chatgpt.site'),
+  metadataBase: new URL('https://nicely-neon-theme.netlify.app'),
   title: 'Nicely Neon — A VS Code theme in full color',
   description: 'A vivid, carefully balanced dark theme for Visual Studio Code. Bright syntax, complete workbench coverage, and neon color without the eye strain.',
   icons: { icon: '/favicon.png' },

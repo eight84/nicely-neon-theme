@@ -38,7 +38,7 @@
   "bugs": {
     "url": "https://github.com/eight84/nicely-neon-theme/issues"
   },
-  "homepage": "https://github.com/eight84/nicely-neon-theme#readme",
+  "homepage": "https://nicely-neon-theme.netlify.app",
   "license": "MIT",
   "icon": "img/icon.png"
 }
