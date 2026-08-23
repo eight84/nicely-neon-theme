@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.3
+
+### Improved
+
+- Added the Nicely Neon mascot to the Marketplace header image and published README previews.
+
 ## 2.0.2
 
 ### Improved
