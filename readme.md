@@ -26,6 +26,10 @@ Seven focused neon colors make syntax easy to scan without turning your editor i
 
 ![CSS code in VS Code with Nicely Neon](./img/nicely-neon-css-preview.png)
 
+### Full workspace
+
+![Nicely Neon across a real VS Code workspace, with the mascot](./img/nicely-neon-workspace-preview.png)
+
 *Captured in VS Code with Nicely Neon and framed consistently for documentation.*
 
 Nicely Neon keeps the editor chrome quiet and gives each syntax family a clear job. The result is colorful at a glance, but calm enough for long sessions.
