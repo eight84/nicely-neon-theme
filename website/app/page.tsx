@@ -1,3 +1,7 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+
 const palette = [
   { name: 'hot pink', hex: '#FE62B5' },
   { name: 'violet', hex: '#8974FF' },
@@ -8,24 +12,97 @@ const palette = [
   { name: 'alert red', hex: '#FE6262' },
 ];
 
-const codeRows = [
-  <><span className="pink">import</span> <span className="cyan">&#123; createGlow &#125;</span> <span className="pink">from</span> <span className="green">&apos;nicely-neon&apos;</span>;</>,
-  <></>,
-  <><span className="blue">const</span> <span className="plain">theme</span> <span className="blue">=</span> <span className="yellow">createGlow</span><span className="plain">(&#123;</span></>,
-  <>&nbsp;&nbsp;<span className="magenta">contrast</span><span className="plain">:</span> <span className="cyan">&apos;balanced&apos;</span><span className="plain">,</span></>,
-  <>&nbsp;&nbsp;<span className="magenta">mood</span><span className="plain">:</span> <span className="green">&apos;electric&apos;</span><span className="plain">,</span></>,
-  <>&nbsp;&nbsp;<span className="magenta">distractions</span><span className="plain">:</span> <span className="red">false</span><span className="plain">,</span></>,
-  <><span className="plain">&#125;);</span></>,
-  <></>,
-  <><span className="muted">// Your editor, after dark.</span></>,
-  <><span className="yellow">activate</span><span className="plain">(theme);</span></>,
-];
+const languages = [
+  {
+    id: 'typescript',
+    shortLabel: 'TS',
+    label: 'TypeScript',
+    file: 'glow.ts',
+    symbol: '✣',
+    line: 10,
+    rows: [
+      <><span className="pink">import</span> <span className="cyan">&#123; createGlow &#125;</span> <span className="pink">from</span> <span className="green">&apos;nicely-neon&apos;</span>;</>,
+      <></>,
+      <><span className="blue">const</span> <span className="plain">theme</span> <span className="blue">=</span> <span className="yellow">createGlow</span><span className="plain">(&#123;</span></>,
+      <>&nbsp;&nbsp;<span className="magenta">contrast</span><span className="plain">:</span> <span className="cyan">&apos;balanced&apos;</span><span className="plain">,</span></>,
+      <>&nbsp;&nbsp;<span className="magenta">mood</span><span className="plain">:</span> <span className="green">&apos;electric&apos;</span><span className="plain">,</span></>,
+      <>&nbsp;&nbsp;<span className="magenta">distractions</span><span className="plain">:</span> <span className="red">false</span><span className="plain">,</span></>,
+      <><span className="plain">&#125;);</span></>,
+      <></>,
+      <><span className="muted">{'// Your editor, after dark.'}</span></>,
+      <><span className="yellow">activate</span><span className="plain">(theme);</span></>,
+    ],
+  },
+  {
+    id: 'python',
+    shortLabel: 'PY',
+    label: 'Python',
+    file: 'palette.py',
+    symbol: '◆',
+    line: 11,
+    rows: [
+      <><span className="blue">from</span> <span className="plain">dataclasses</span> <span className="blue">import</span> <span className="plain">dataclass</span></>,
+      <></>,
+      <><span className="blue">@</span><span className="yellow">dataclass</span><span className="plain">(</span><span className="magenta">frozen</span><span className="blue">=</span><span className="red">True</span><span className="plain">)</span></>,
+      <><span className="blue">class</span> <span className="cyan">Palette</span><span className="plain">:</span></>,
+      <>&nbsp;&nbsp;<span className="plain">name</span><span className="blue">:</span> <span className="cyan">str</span></>,
+      <>&nbsp;&nbsp;<span className="plain">colors</span><span className="blue">:</span> <span className="cyan">tuple</span><span className="plain">[</span><span className="cyan">str</span><span className="plain">, ...]</span></>,
+      <></>,
+      <><span className="plain">nicely_neon</span> <span className="blue">=</span> <span className="yellow">Palette</span><span className="plain">(</span></>,
+      <>&nbsp;&nbsp;<span className="magenta">name</span><span className="blue">=</span><span className="green">&quot;Nicely Neon&quot;</span><span className="plain">,</span></>,
+      <>&nbsp;&nbsp;<span className="magenta">colors</span><span className="blue">=</span><span className="plain">(</span><span className="green">&quot;#FE62B5&quot;</span><span className="plain">, </span><span className="green">&quot;#62A8FE&quot;</span><span className="plain">, </span><span className="green">&quot;#1AFF90&quot;</span><span className="plain">),</span></>,
+      <><span className="plain">)</span></>,
+    ],
+  },
+  {
+    id: 'css',
+    shortLabel: 'CSS',
+    label: 'CSS',
+    file: 'neon.css',
+    symbol: '#',
+    line: 10,
+    rows: [
+      <><span className="yellow">:root</span> <span className="plain">&#123;</span></>,
+      <>&nbsp;&nbsp;<span className="cyan">--neon-pink</span><span className="plain">:</span> <span className="pink">#fe62b5</span><span className="plain">;</span></>,
+      <>&nbsp;&nbsp;<span className="cyan">--neon-cyan</span><span className="plain">:</span> <span className="green">#62feca</span><span className="plain">;</span></>,
+      <>&nbsp;&nbsp;<span className="cyan">--selection</span><span className="plain">:</span> <span className="blue">#4d4d58</span><span className="plain">;</span></>,
+      <><span className="plain">&#125;</span></>,
+      <></>,
+      <><span className="yellow">::selection</span> <span className="plain">&#123;</span></>,
+      <>&nbsp;&nbsp;<span className="magenta">color</span><span className="plain">:</span> <span className="cyan">#fff</span><span className="plain">;</span></>,
+      <>&nbsp;&nbsp;<span className="magenta">background</span><span className="plain">:</span> <span className="yellow">var</span><span className="plain">(</span><span className="cyan">--selection</span><span className="plain">);</span></>,
+      <><span className="plain">&#125;</span></>,
+    ],
+  },
+] as const;
 
 function ArrowIcon() {
   return <span aria-hidden="true">↗</span>;
 }
 
 export default function Home() {
+  const [activeLanguageId, setActiveLanguageId] = useState<(typeof languages)[number]['id']>('typescript');
+  const [isSwitching, setIsSwitching] = useState(false);
+  const transitionTimers = useRef<number[]>([]);
+  const activeLanguage = languages.find((language) => language.id === activeLanguageId) ?? languages[0];
+
+  useEffect(() => () => {
+    transitionTimers.current.forEach((timer) => window.clearTimeout(timer));
+  }, []);
+
+  function switchLanguage(languageId: (typeof languages)[number]['id']) {
+    if (languageId === activeLanguageId || isSwitching) return;
+
+    transitionTimers.current.forEach((timer) => window.clearTimeout(timer));
+    setIsSwitching(true);
+    transitionTimers.current = [
+      window.setTimeout(() => {
+        setActiveLanguageId(languageId);
+        transitionTimers.current = [window.setTimeout(() => setIsSwitching(false), 70)];
+      }, 150),
+    ];
+  }
+
   return (
     <main>
       <nav className="nav shell" aria-label="Primary navigation">
@@ -61,23 +138,36 @@ export default function Home() {
           <div className="editorWindow">
             <div className="editorTopbar">
               <div className="windowDots"><i /><i /><i /></div>
-              <div className="editorTab"><span className="reactMark">✣</span> glow.ts <b>×</b></div>
-              <span className="topbarFade" />
+              <div className="editorTab"><span className={`fileMark ${activeLanguage.id}`}>{activeLanguage.symbol}</span> {activeLanguage.file} <b>×</b></div>
+              <div className="languageSwitcher" role="group" aria-label="Preview language">
+                {languages.map((language) => (
+                  <button
+                    type="button"
+                    key={language.id}
+                    className={language.id === activeLanguage.id ? 'active' : ''}
+                    aria-label={`Show ${language.label} example`}
+                    aria-pressed={language.id === activeLanguage.id}
+                    onClick={() => switchLanguage(language.id)}
+                  >
+                    {language.shortLabel}
+                  </button>
+                ))}
+              </div>
             </div>
             <div className="editorBody">
               <aside className="editorRail" aria-hidden="true">
                 <span>◇</span><span>⌕</span><span>⑂</span><span>▷</span><span>▦</span>
               </aside>
-              <div className="codePane">
-                <div className="breadcrumb">src <span>›</span> glow.ts <span>›</span> <b>theme</b></div>
-                <ol>
-                  {codeRows.map((row, index) => <li key={index}><code>{row}</code></li>)}
+              <div className={`codePane codeTransition${isSwitching ? ' isSwitching' : ''}`} aria-live="polite" aria-busy={isSwitching}>
+                <div className="breadcrumb">src <span>›</span> {activeLanguage.file} <span>›</span> <b>{activeLanguage.label.toLowerCase()}</b></div>
+                <ol key={activeLanguage.id}>
+                  {activeLanguage.rows.map((row, index) => <li key={index}><code>{row}</code></li>)}
                 </ol>
               </div>
             </div>
-            <div className="editorStatus"><span>main*</span><span>Ln 10, Col 17&nbsp;&nbsp; UTF-8&nbsp;&nbsp; TypeScript</span></div>
+            <div className="editorStatus"><span>main*</span><span>Ln {activeLanguage.line}, Col 17&nbsp;&nbsp; UTF-8&nbsp;&nbsp; {activeLanguage.label}</span></div>
           </div>
-          <p className="previewCaption"><span>01</span> Nicely Neon / TypeScript</p>
+          <p className="previewCaption"><span>01</span> Nicely Neon / {activeLanguage.label}</p>
         </div>
       </section>
 
