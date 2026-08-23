@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.1
+
+### Improved
+
+- Refined the theme's visible text selection highlight for clearer contrast.
+- Added an updated extension icon and refreshed README previews, language examples, and project links.
+
 ## 2.0.0
 
 ### Improved

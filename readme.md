@@ -16,11 +16,11 @@ Seven focused neon colors make syntax easy to scan without turning your editor i
 
 ### TypeScript + React
 
-![TypeScript and React code in VS Code with Nicely Neon](./img/nicely-neon-typescript.svg)
+![TypeScript and React code in VS Code with Nicely Neon](./img/nicely-neon-typescript-preview.png)
 
 ### Python
 
-![Python code in VS Code with Nicely Neon](./img/nicely-neon-python.svg)
+![Python code in VS Code with Nicely Neon](./img/nicely-neon-python-preview.png)
 
 *Captured directly in VS Code with Nicely Neon—matching dimensions, real syntax highlighting, and no recoloring.*
 
