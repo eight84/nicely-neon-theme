@@ -32,52 +32,13 @@ Nicely Neon keeps the editor chrome quiet and gives each syntax family a clear j
 
 Selections use a balanced graphite gray (`#4D4D58`) so highlighted text stays visible without fighting the syntax colors.
 
-## Syntax examples
+## Real editor capture
 
-### TypeScript
+![An actual TypeScript and React file open in VS Code with Nicely Neon](./img/nicely-neon-typescript.png)
 
-```ts
-type GlowMode = 'balanced' | 'electric';
+*TypeScript and TSX shown directly in VS Code with Nicely Neon—no alternate syntax highlighter or recoloring.*
 
-const createGlow = (mode: GlowMode) => ({
-  contrast: 'comfortable',
-  mood: mode,
-  distractions: false,
-});
-
-export const theme = createGlow('electric');
-```
-
-### Python
-
-```python
-from dataclasses import dataclass
-
-@dataclass(frozen=True)
-class Palette:
-    name: str
-    colors: tuple[str, ...]
-
-nicely_neon = Palette(
-    name="Nicely Neon",
-    colors=("#FE62B5", "#62A8FE", "#1AFF90"),
-)
-```
-
-### CSS
-
-```css
-:root {
-  --neon-pink: #fe62b5;
-  --neon-cyan: #62feca;
-  --selection: #4d4d58;
-}
-
-::selection {
-  color: #fff;
-  background: var(--selection);
-}
-```
+GitHub renders fenced code examples with its own syntax colors, so screenshots are used here to show the theme accurately.
 
 ## Install
 
