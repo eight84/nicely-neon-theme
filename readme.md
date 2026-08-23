@@ -12,9 +12,17 @@ Seven focused neon colors make syntax easy to scan without turning your editor i
 
 </div>
 
-## See it in action
+## Preview
 
-![Nicely Neon shown across TypeScript, Python, and CSS editor panes](./img/nicely-neon-editor-preview.png)
+### TypeScript + React
+
+![TypeScript and React code in VS Code with Nicely Neon](./img/nicely-neon-typescript.jpg)
+
+### Python
+
+![Python code in VS Code with Nicely Neon](./img/nicely-neon-python.jpg)
+
+*Captured directly in VS Code with Nicely Neon—matching dimensions, real syntax highlighting, and no recoloring.*
 
 Nicely Neon keeps the editor chrome quiet and gives each syntax family a clear job. The result is colorful at a glance, but calm enough for long sessions.
 
@@ -31,20 +39,6 @@ Nicely Neon keeps the editor chrome quiet and gives each syntax family a clear j
 | 🔴 Alert red | `#FE6262` | Errors, invalid tokens, and destructive states |
 
 Selections use a balanced graphite gray (`#4D4D58`) so highlighted text stays visible without fighting the syntax colors.
-
-## Real editor captures
-
-### TypeScript + React
-
-![An actual TypeScript and React file open in VS Code with Nicely Neon](./img/nicely-neon-typescript.png)
-
-### Python
-
-![An actual Python file open in VS Code with Nicely Neon](./img/nicely-neon-python.png)
-
-*Captured directly in VS Code with Nicely Neon—matching dimensions, no alternate syntax highlighter, and no recoloring.*
-
-GitHub renders fenced code examples with its own syntax colors, so screenshots are used here to show the theme accurately.
 
 ## Install
 
