@@ -1,14 +1,14 @@
 <div align="center">
 
-![Nicely Neon — Code in full color](./website/public/og.png)
+![Nicely Neon — Code in full color](./img/nicely-neon-header.png)
 
 # Nicely Neon
 
-**A vivid, carefully balanced dark theme for Visual Studio Code.**
+**A vivid, carefully balanced dark theme for Visual Studio Code, Cursor, and PyCharm.**
 
 Seven focused neon colors make syntax easy to scan without turning your editor into visual noise.
 
-[Install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=eight84.nicely-neon-theme) · [Explore the landing page](https://nicely-neon-theme.netlify.app/) · [Visit eight84.com](https://eight84.com)
+[Install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=eight84.nicely-neon-theme) · [Use in Cursor](#cursor) · [Explore the landing page](https://nicely-neon-theme.netlify.app/) · [Visit eight84.com](https://eight84.com)
 
 </div>
 
@@ -50,6 +50,8 @@ Selections use a balanced graphite gray (`#4D4D58`) so highlighted text stays vi
 
 ## Install
 
+### Visual Studio Code
+
 1. Open the **Extensions** view in VS Code.
 2. Search for **Nicely Neon Theme**.
 3. Select **Install**.
@@ -62,6 +64,29 @@ ext install eight84.nicely-neon-theme
 ```
 
 [Open Nicely Neon in the Visual Studio Marketplace →](https://marketplace.visualstudio.com/items?itemName=eight84.nicely-neon-theme)
+
+### Cursor
+
+Cursor supports VS Code color-theme extensions, so Nicely Neon uses the same `.vsix` package in both editors.
+
+To install the package directly:
+
+1. Download the latest `nicely-neon-theme-*.vsix` package.
+2. In Cursor, open the Command Palette.
+3. Run **Extensions: Install from VSIX...** and select the downloaded file.
+4. Run **Preferences: Color Theme** and choose **Nicely Neon**.
+
+If Nicely Neon is already installed in VS Code, Cursor can also import your VS Code extensions and themes from **Cursor Settings → General → Account → VS Code Import**.
+
+### PyCharm and other JetBrains IDEs
+
+Download [`Nicely-Neon.icls`](./themes/Nicely-Neon.icls), then:
+
+1. Open **Settings/Preferences → Editor → Color Scheme**.
+2. Open the scheme menu next to the color-scheme selector.
+3. Choose **Import Scheme**, select `Nicely-Neon.icls`, and apply **Nicely Neon**.
+
+The `.icls` file is the only download needed for the editor color scheme. It works with PyCharm and other IntelliJ Platform IDEs. PyCharm's surrounding application UI remains on its selected dark theme; a complete replacement of the IDE chrome would require a separate theme-plugin `.jar`.
 
 ## What’s new in 2.0
 
@@ -84,6 +109,8 @@ Create an installable VSIX package:
 ```bash
 npm run package:vsix
 ```
+
+The generated VSIX works in both VS Code and Cursor.
 
 The landing page lives in `website/` and has its own development commands.
 

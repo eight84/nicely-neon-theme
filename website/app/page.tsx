@@ -12,6 +12,10 @@ const palette = [
   { name: 'alert red', hex: '#FE6262' },
 ];
 
+const marketplaceUrl = 'https://marketplace.visualstudio.com/items?itemName=eight84.nicely-neon-theme';
+const openVsxUrl = 'https://open-vsx.org/extension/eight84/nicely-neon-theme';
+const pyCharmDownloadUrl = '/Nicely-Neon.icls';
+
 const languages = [
   {
     id: 'typescript',
@@ -83,18 +87,20 @@ const websiteSchema = {
       '@type': 'WebSite',
       name: 'Nicely Neon',
       url: 'https://nicely-neon-theme.netlify.app/',
-      description: 'A free colorful dark theme for Visual Studio Code.',
+      description: 'A free colorful dark theme for Visual Studio Code, Cursor, and PyCharm.',
       publisher: { '@type': 'Organization', name: 'eight84', url: 'https://eight84.com' },
     },
     {
       '@type': 'SoftwareApplication',
       name: 'Nicely Neon Theme',
       applicationCategory: 'DeveloperApplication',
-      operatingSystem: 'Visual Studio Code',
-      description: 'A free colorful dark VS Code theme with vivid syntax highlighting, balanced contrast, and complete workbench coverage.',
+      operatingSystem: 'Windows, macOS, Linux',
+      softwareRequirements: 'Visual Studio Code, Cursor, or a JetBrains IDE such as PyCharm',
+      description: 'A free colorful dark editor theme for Visual Studio Code, Cursor, and PyCharm with vivid syntax highlighting and balanced contrast.',
       image: 'https://nicely-neon-theme.netlify.app/og.png',
       url: 'https://nicely-neon-theme.netlify.app/',
-      downloadUrl: 'https://marketplace.visualstudio.com/items?itemName=eight84.nicely-neon-theme',
+      downloadUrl: marketplaceUrl,
+      sameAs: [marketplaceUrl, openVsxUrl],
       codeRepository: 'https://github.com/eight84/nicely-neon-theme',
       author: { '@type': 'Organization', name: 'eight84', url: 'https://eight84.com' },
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
@@ -105,12 +111,22 @@ const websiteSchema = {
         {
           '@type': 'Question',
           name: 'What is Nicely Neon?',
-          acceptedAnswer: { '@type': 'Answer', text: 'Nicely Neon is a free, colorful dark theme for Visual Studio Code. It uses a focused neon palette for readable syntax, editor chrome, and workbench states.' },
+          acceptedAnswer: { '@type': 'Answer', text: 'Nicely Neon is a free, colorful dark theme for Visual Studio Code, Cursor, and PyCharm. It uses a focused neon palette for readable syntax and clear editor states.' },
         },
         {
           '@type': 'Question',
           name: 'How do I install the Nicely Neon VS Code theme?',
           acceptedAnswer: { '@type': 'Answer', text: 'Install Nicely Neon from the Visual Studio Marketplace, then choose Nicely Neon from Preferences: Color Theme in Visual Studio Code.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'Does Nicely Neon work in Cursor?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Yes. Install Nicely Neon from Open VSX inside Cursor, then select it from Preferences: Color Theme.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'How do I install Nicely Neon in PyCharm?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Download the Nicely-Neon.icls file and import it from Settings or Preferences, Editor, Color Scheme, Import Scheme.' },
         },
         {
           '@type': 'Question',
@@ -168,14 +184,16 @@ export default function Home() {
         <div className="heroCopy">
           <p className="eyebrow"><span /> A dark theme for bright ideas</p>
           <h1>Code in<br /><span>full color.</span></h1>
-          <p className="lede">A vivid, carefully balanced VS Code theme that makes syntax unmistakable—and long sessions feel a little more alive. For anyone looking for a cool colorful dark theme, this is color with a job.</p>
+          <p className="lede">A vivid, carefully balanced dark theme that makes syntax unmistakable—and long sessions feel a little more alive. One color system, tuned for VS Code, Cursor, and PyCharm.</p>
           <div className="heroActions">
-            <a className="primaryButton" href="https://marketplace.visualstudio.com/items?itemName=eight84.nicely-neon-theme" target="_blank" rel="noreferrer">Install for VS Code <ArrowIcon /></a>
+            <a className="primaryButton" href="#install">Choose your editor <span aria-hidden="true">↓</span></a>
             <a className="textLink" href="#palette">Explore the palette <span aria-hidden="true">↓</span></a>
           </div>
-          <div className="quickInstall" aria-label="Quick install command">
-            <span className="terminalPrompt">›</span>
-            <code>ext install eight84.nicely-neon-theme</code>
+          <div className="editorSupport" aria-label="Supported editors">
+            <span>AVAILABLE FOR</span>
+            <b>VS CODE</b><i />
+            <b>CURSOR</b><i />
+            <b>PYCHARM</b>
           </div>
         </div>
 
@@ -263,16 +281,20 @@ export default function Home() {
         <div className="faqIntro">
           <p className="kicker">03 / QUICK ANSWERS</p>
           <h2 id="faq-heading">A colorful theme,<br />without the noise.</h2>
-          <p>Nicely Neon is designed for people who want a cool VS Code theme that still stays readable during real work.</p>
+          <p>Nicely Neon is designed for people who want expressive color that still stays readable during real work—regardless of editor.</p>
         </div>
         <div className="faqList">
           <details open>
             <summary>What is Nicely Neon?</summary>
-            <p>A free, colorful dark Visual Studio Code theme with vivid syntax highlighting, balanced contrast, and full workbench coverage.</p>
+            <p>A free, colorful dark theme for VS Code, Cursor, and PyCharm with vivid syntax highlighting and balanced contrast.</p>
           </details>
           <details>
-            <summary>How do I install it?</summary>
-            <p>Install it from the Visual Studio Marketplace, then select <strong>Nicely Neon</strong> from Preferences: Color Theme.</p>
+            <summary>Does it work in Cursor?</summary>
+            <p>Yes. Nicely Neon is published on <a href={openVsxUrl} target="_blank" rel="noreferrer">Open VSX</a>, the extension registry used by Cursor. Install it from the Extensions panel, then select <strong>Nicely Neon</strong> from Preferences: Color Theme.</p>
+          </details>
+          <details>
+            <summary>How do I install it in PyCharm?</summary>
+            <p>Download the <a href={pyCharmDownloadUrl} download><strong>Nicely-Neon.icls</strong></a> scheme, then import it from Settings/Preferences → Editor → Color Scheme → Import Scheme.</p>
           </details>
           <details>
             <summary>Which languages does it support?</summary>
@@ -286,16 +308,35 @@ export default function Home() {
         <div className="installInner shell">
           <p className="kicker">04 / LIGHTS ON</p>
           <h2>Your editor called.<br /><span>It wants a glow-up.</span></h2>
-          <p>Install Nicely Neon from the VS Code Marketplace, then choose it from Preferences: Color Theme.</p>
-          <a className="primaryButton large" href="https://marketplace.visualstudio.com/items?itemName=eight84.nicely-neon-theme" target="_blank" rel="noreferrer">Get Nicely Neon <ArrowIcon /></a>
-          <small>Free · Open source · Made by eight84</small>
+          <p>Pick your editor. The palette stays unmistakably Nicely Neon wherever you work.</p>
+          <div className="platformGrid">
+            <article className="platformCard vscodeCard">
+              <div className="platformCardTop"><span className="platformMark">VS</span><small>EXTENSION</small></div>
+              <h3>Visual Studio Code</h3>
+              <p>Full syntax, workbench, terminal, Git, and semantic-token coverage.</p>
+              <a href={marketplaceUrl} target="_blank" rel="noreferrer">Open Marketplace <ArrowIcon /></a>
+            </article>
+            <article className="platformCard cursorCard">
+              <div className="platformCardTop"><span className="platformMark">CR</span><small>OPEN VSX</small></div>
+              <h3>Cursor</h3>
+              <p>Native VS Code theme support, available directly from Cursor&apos;s extension registry.</p>
+              <a href={openVsxUrl} target="_blank" rel="noreferrer">Install in Cursor <ArrowIcon /></a>
+            </article>
+            <article className="platformCard pycharmCard">
+              <div className="platformCardTop"><span className="platformMark">PY</span><small>COLOR SCHEME</small></div>
+              <h3>PyCharm</h3>
+              <p>A native JetBrains editor scheme with Python, console, diagnostics, and diff colors.</p>
+              <a href={pyCharmDownloadUrl} download>Download .icls <span aria-hidden="true">↓</span></a>
+            </article>
+          </div>
+          <small>Free · Open source · Made by <a href="https://eight84.com" target="_blank" rel="noreferrer">eight84</a></small>
         </div>
       </section>
 
       <footer className="footer shell">
         <a className="brand" href="#top"><img src="/nicely-neon-mascot.png" alt="" /><span>NICELY NEON</span></a>
         <p>Color outside the lines.</p>
-        <div><a href="https://marketplace.visualstudio.com/items?itemName=eight84.nicely-neon-theme" target="_blank" rel="noreferrer">Marketplace</a><a href="https://github.com/eight84/nicely-neon-theme" target="_blank" rel="noreferrer">GitHub</a><a href="https://eight84.com" target="_blank" rel="noreferrer">eight84.com</a></div>
+        <div><a href={marketplaceUrl} target="_blank" rel="noreferrer">VS Code</a><a href={openVsxUrl} target="_blank" rel="noreferrer">Cursor</a><a href={pyCharmDownloadUrl} download>PyCharm</a><a href="https://github.com/eight84/nicely-neon-theme" target="_blank" rel="noreferrer">GitHub</a></div>
       </footer>
     </main>
   );

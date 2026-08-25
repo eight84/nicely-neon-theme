@@ -1,6 +1,13 @@
 .git/**
 .github/**
+.gitignore
+.netlify/**
 .openai/**
+examples/**
+netlify.toml
 scripts/**
+themes/*.icls
 website/**
+img/*.jpg
+img/*.svg
 *.vsix
